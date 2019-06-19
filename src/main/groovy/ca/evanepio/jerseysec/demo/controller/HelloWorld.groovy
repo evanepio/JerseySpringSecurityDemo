@@ -1,12 +1,18 @@
 package ca.evanepio.jerseysec.demo.controller
 
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.stereotype.Component
 
-@RestController
+import javax.ws.rs.GET
+import javax.ws.rs.Path
+import javax.ws.rs.Produces
+import javax.ws.rs.core.MediaType
+
+@Component
+@Path("/greeting")
 class HelloWorld {
-    @RequestMapping("/greeting")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     Map<String, String> greeting() {
-        return [greeting:"Hello, World!"]
+        return [greeting:"Hello, Jersey World!"]
     }
 }
